@@ -25,11 +25,17 @@ find_package(Qt${QT_MAJOR}LinguistTools REQUIRED)
 # TODO: Is this the correct way to do this, and is it required on any
 # other platforms or with Qt 5?
 if(APPLE AND USE_QT6)
-    find_package(Qt6Gui/Qt6QCocoaIntegrationPlugin REQUIRED)
-    find_package(Qt6Widgets/Qt6QMacStylePlugin REQUIRED)
-    find_package(Qt6Gui/Qt6QICOPlugin REQUIRED)
-    find_package(Qt6Gui/Qt6QICNSPlugin REQUIRED)
+    find_package(Qt6QCocoaIntegrationPlugin REQUIRED)
+    find_package(Qt6QMacStylePlugin REQUIRED)
+    find_package(Qt6QICOPlugin REQUIRED)
+    find_package(Qt6QICNSPlugin REQUIRED)
 endif()
+# qt_import_plugins(86Box
+#     INCLUDE Qt6::QCocoaIntegrationPlugin
+#     INCLUDE Qt6::QMacStylePlugin
+#     INCLUDE Qt6::QICOPlugin
+#     INCLUDE Qt6::QICNSPlugin
+# )
 
 add_library(plat STATIC
     qt.c
